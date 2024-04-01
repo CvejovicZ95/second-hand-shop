@@ -1,0 +1,633 @@
+.body{
+  margin: 0;
+  padding: 0;
+}
+.App{
+  font-family:Arial, Helvetica, sans-serif;
+}
+a{
+  text-decoration: none;
+}
+.header{
+  background-color: #333;
+}
+.header h1{
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+}
+.header-div{
+  display: flex;
+  justify-content:space-evenly ;
+  align-items: center;
+}
+.header-login-btn{
+  padding: 10px 20px;
+  background-color: rgb(0, 200, 0);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.header-login-btn:hover{
+  background-color: rgb(0, 160, 0);
+}
+.header-logout-btn{
+  padding: 10px 20px;
+  background-color: rgb(255, 0, 0);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.header-logout-btn:hover{
+  background-color: rgb(155, 0, 0);
+}
+.nav{
+  display: flex;
+  justify-content: center;
+}
+.nav li{
+  padding: 20px;
+  list-style: none;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.nav a{
+  text-decoration: none;
+  color: #333;
+}
+.nav li:hover{
+  background-color: silver;
+}
+
+
+.search-form{
+  text-align: center;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+.search-input {
+  padding: 16px;
+  margin-right: 12px;
+  font-size: 22px;
+  width:380px
+}
+.search-button {
+  padding: 0 10px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.fa-search {
+  margin-right: 5px; 
+  transition: transform 0.3s ease; 
+}
+
+.search-button:hover .fa-search {
+  transform: scale(1.2); 
+}
+
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer .contact-info {
+  margin-bottom: 20px;
+}
+
+.footer .contact-info h3 {
+  font-size: 36px;
+}
+
+.footer .contact-info p {
+  margin: 12px 0;
+  font-size: 18px;
+  color: silver;
+}
+
+.footer .social-media ul {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.footer .social-media ul li {
+  list-style: none;
+  margin: 20px 30px;
+  cursor: pointer;
+}
+
+.footer .social-media ul li svg {
+  font-size: 28px;
+  color: #fff;
+}
+
+.footer p {
+  margin-bottom: 10px;
+  color: slategrey;
+}
+
+.footer img {
+  display: block;
+  margin: 0 auto;
+}
+
+.img{
+  border-radius: 15px
+}
+
+
+.div-form{
+  text-align: center;
+}
+.loginForm,.registerForm{
+  max-width: 600px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+.loginForm input,.registerForm input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.login-button,.register-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.login-button:hover,.register-button:hover,.see-products-btn:hover {
+  background-color: #555;
+}
+.login-now,.register-now{
+  text-align: start;
+  font-size: 16px;
+  color:#555;
+  margin-top: 10px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+.login-now span,.register-now span{
+  font-size: 18px;
+  color: black;
+}
+.login-now span:hover,.register-now span:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.captcha{
+  text-align: start;
+  color: #555;
+  margin-top: 30px;
+}
+.see-products-btn{
+  width: 35%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.createAd-div {
+  text-align: center;
+}
+
+.createAdForm {
+  max-width: 600px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.createAdForm input,
+.createAdForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.createAdForm .upload-file {
+  margin-bottom: 15px;
+}
+
+.createAdForm button {
+  display: block;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.createAdForm button:hover {
+  background-color: #555;
+}
+
+.createAdForm h1 {
+  margin-top: 0;
+  font-size: 36px;
+}
+
+.createAdForm button:last-child {
+  background-color: #ccc;
+  color: #333;
+}
+
+.createAdForm button:last-child:hover {
+  background-color: #999;
+}
+.createAdForm a{
+  text-decoration: none;
+}
+
+.upload-file {
+  opacity: 0; /* Sakrij stvarno input polje */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+
+}
+
+.upload-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: #fff;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+.upload-icon{
+  font-size: 22px;
+  margin-right: 5px;
+}
+.upload-label {
+  display: inline-block;
+  max-width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 10px;
+  font-size: 19px;
+}
+
+.upload-wrapper:hover {
+  background-color: #fff;
+  color: #3498db;
+}
+
+.upload-wrapper:active {
+  background-color: #2980b9;
+  color: #fff;
+}
+.login-btn{
+  background-color: #333;
+  padding: 10px;
+  margin: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.login-btn:hover{
+  background-color: #555;
+}
+
+.myAds{
+  text-align: center;
+}
+.myAds button{
+  padding: 10px;
+  margin: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.adsList{
+  display: flex;
+}
+.ad{
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin: auto;
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.delete-button {
+  background-color: #ff6961;
+  color: #fff;
+}
+.update-button {
+  background-color: #50bbe6;
+  color: #fff;
+}
+.delete-button:hover {
+  background-color: #ff4238;
+}
+.update-button:hover {
+  background-color: #1db0eb;
+}
+.home-page-btn{
+  background-color: #333;
+}
+.home-page-btn:hover{
+  background-color: #555;
+}
+.update-div{
+  display: block;
+}
+.update-input{
+  width: 80%;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+.update-area{
+  width: 80%;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  height: 150px;
+}
+
+
+
+
+
+.allAds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 100px;
+  margin-bottom: 100px;
+}
+
+.singleAd{
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  height: 350px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.singleAd h2,.myAds h2 {
+  color: #1f1f1f;
+  font-size: 20px;
+}
+.singleAd-page h2{
+  color: #1f1f1f;
+  font-size: 22px;
+}
+
+.singleAd span,.myAds span {
+  display: block;
+  margin-bottom: 5px;
+  color: #555555;
+}
+.singleAd-page span{
+  display: block;
+  margin-bottom: 5px;
+  color: #555555;
+  font-size: 22px;
+}
+.singleAd p,.myAds p{
+  color: #555;
+}
+.singleAd-page span{
+  font-size: 18px;
+  color: #555;
+}
+.info-single-product span{
+  font-size: 24px;
+}
+.singleAd-page{
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 1000px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.home-page{
+  display: block;
+  width: 35%;
+  margin: auto;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.home-page:hover{
+  background-color: #555;
+}
+.no-products{
+  color:red;
+  margin:auto;
+  font-size: 56px;
+}
+.map{
+  width: 600px;
+  height: 400px;
+}
+
+
+/* Za ekrane širine manje od 600 piksela (tipično za telefone) */
+@media only screen and (max-width: 768px) {
+  .header {
+    padding-bottom: 5px;
+  }
+  .header h1 {
+    font-size: 24px;
+  }
+  .header-div {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header-login-btn, .header-logout-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  .nav{
+    display: block;
+    margin-right: 30px;
+  }
+  .nav li {
+    padding: 10px;
+    font-size: 16px;
+  }
+  .search-input {
+    padding: 12px;
+    font-size: 18px;
+    width: 60%;
+  }
+  .search-form {
+    padding: 20px;
+  }
+  .search-button {
+    font-size: 28px;
+  }
+  .createAdForm input,
+  .createAdForm textarea {
+    font-size: 16px;
+    width: 90%;
+  }
+  .createAdForm button {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .createAdForm h1 {
+    font-size: 24px;
+  }
+  .upload-wrapper {
+    padding: 6px 12px;
+    font-size: 16px;
+  }
+  .upload-label {
+    font-size: 14px;
+  }
+  .loginForm input,
+  .registerForm input {
+    font-size: 16px;
+    width: 90%;
+    margin: 10px;
+  }
+  .loginForm button,
+  .registerForm button {
+    padding: 8px;
+    font-size: 14px;
+    width: 90%;
+  }
+  .login-now,
+  .register-now {
+    font-size: 14px;
+  }
+  .captcha {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .see-products-btn {
+    width: 40%;
+    font-size: 16px;
+  }
+  .myAds button {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .ad {
+    padding: 15px;
+    margin: 10px auto;
+    width: 90%;
+    font-size: 14px;
+  }
+  .singleAd {
+    padding: 8px;
+    margin: 8px auto;
+    width: 90%;
+    height: auto;
+    font-size: 14px;
+  }
+  .singleAd h2 {
+    font-size: 18px;
+  }
+  .adsList{
+    display: block;
+  }
+  .singleAd span,
+  .myAds span {
+    font-size: 14px;
+  }
+  .singleAd p,
+  .myAds p {
+    font-size: 14px;
+  }
+  .singleAd-page {
+    padding: 8px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    font-size: 16px;
+  }
+  .home-page {
+    width: 50%;
+    font-size: 16px;
+  }
+  .info-single-product span {
+    font-size: 20px;
+  }
+  .allAds {
+    display: block;
+    margin: auto;
+    text-align: center; /* Uklanjamo marginu kako bi se proizvodi centrirali */
+  }
+  .singleAd {
+    width: 90%; /* Povećavamo širinu proizvoda kako bi se centrirali na ekranu */
+    margin: 10px auto; /* Centriramo proizvode na ekranu */
+  }
+  .no-products{
+    color: red;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .map{
+    width: 250px;
+    height: 200px;
+  }
+  
+}
