@@ -10,6 +10,7 @@ const generateTokenAndSetCookie = (user, res) => {
     httpOnly:true,
     sameSite:'strict',
   });
+  //return token
 };
 
 export default generateTokenAndSetCookie;
