@@ -1,5 +1,5 @@
 "# Second-Hand-Shop" 
-"# Second-Hand-Shop" 
 
+# Project entails developing a user-friendly website for a second-hand shop, featuring registration, login, ad posting, search functionalities, as well as options for editing and deleting ads. The site aims to provide a seamless platform for buying and selling used goods, catering to a wide range of users in need of such services.
 
-//problem sa middleware-om, nece da posalje token u cookie, ne znam zbog cega, nisam uspeo da resim to, i onda ne koristim protect middleware, videces vec na rutama, a mislim da nece da se posalje cookie jer je back na jednom portu a front na drugom, ali nisam siguran...
+## little problem with middleware/cookie
