@@ -5,8 +5,11 @@ const generateTokenAndSetCookie = (user, res) => {
     expiresIn: '15d'
   });
 
-  // Postavljanje tokena u cookie header
-  res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Max-Age=${15 * 24 * 60 * 60}; Path=/`);
+  res.cookie('token',token,{
+    maxAge:24*60*60*1000,
+    httpOnly:true,
+    sameSite:'strict',
+  });
 };
 
 export default generateTokenAndSetCookie;
