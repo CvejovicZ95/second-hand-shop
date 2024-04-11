@@ -1,11 +1,11 @@
-import Logo from "./Logo";
 import { Link } from "react-router-dom"
 import { useAuthContext } from "../context/AuthContext";
-import useLogout from "../hooks/useLogout";
+import {Logo} from "./Logo";
+import {useLogout} from "../hooks/useLogout";
 
 const Header = () => {
   const {authUser}=useAuthContext()
-  const {logout}=useLogout()
+  const {logoutHandler}=useLogout()
 
   let welcomeMessage = (
     <h1>Welcome! Find Your Perfect Match Here...</h1>
@@ -23,7 +23,7 @@ const Header = () => {
       <div className="header-div">
         <Logo/>
         {welcomeMessage}
-        {!authUser ?<Link to='/login'><button className="header-login-btn">Login</button></Link> : <button onClick={logout} className="header-logout-btn">Logout</button>}
+        {!authUser ?<Link to='/login'><button className="header-login-btn">Login</button></Link> : <button onClick={logoutHandler} className="header-logout-btn">Logout</button>}
       </div>
       <ul className="nav">
         
@@ -34,4 +34,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export {Header};

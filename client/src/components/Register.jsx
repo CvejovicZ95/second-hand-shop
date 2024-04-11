@@ -1,7 +1,7 @@
-import Logo from "./Logo"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import useRegister from "../hooks/useRegister"
+import {Logo} from "./Logo"
+import {useRegister} from "../hooks/useRegister"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -79,4 +79,4 @@ const Register=()=>{
   )
 }
 
-export default Register
+export {Register}

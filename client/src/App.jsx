@@ -1,9 +1,9 @@
-import Layout from "./components/Layout";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import CreateAd from "./components/CreateAd";
-import MyAds from "./components/MyAds";
-import SingleAd from "./components/SingleAd";
+import {Layout} from "./components/Layout";
+import {Login} from "./components/Login";
+import {Register} from "./components/Register";
+import {CreateAd} from "./components/CreateAd";
+import {MyAds} from "./components/MyAds";
+import {SingleAd} from "./components/SingleAd";
 
 import {Navigate, Route,Routes} from 'react-router-dom'
 import { useAuthContext } from "./context/AuthContext";
@@ -29,4 +29,4 @@ function App() {
   );
 }
 
-export default App;
+export {App};

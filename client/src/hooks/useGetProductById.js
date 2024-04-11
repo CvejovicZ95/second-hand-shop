@@ -27,4 +27,4 @@ const useGetProductById = (id) => {
   return { loading, product };
 };
 
-export default useGetProductById;
+export {useGetProductById};

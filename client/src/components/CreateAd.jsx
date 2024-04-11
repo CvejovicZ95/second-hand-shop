@@ -3,9 +3,9 @@ import { FaUpload } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import useUpload from "../hooks/useUploadProduct";
-import Logo from "./Logo";
-import Footer from "./Footer";
+import {useUpload} from "../hooks/useUploadProduct";
+import {Logo} from "./Logo";
+import {Footer} from "./Footer";
 import { useAuthContext } from "../context/AuthContext";
 
 const CreateAd = () => {
@@ -16,7 +16,7 @@ const CreateAd = () => {
     about: "",
     price: "",
     authorId: "",
-    image: null // Dodajemo polje za sliku
+    image: null 
   });
 
   const [completed,setCompleted]=useState(false)
@@ -132,20 +132,4 @@ const CreateAd = () => {
   );
 };
 
-export default CreateAd;
-
-
-
-
-
-
-          /*<div className="upload-wrapper">
-            <span className="upload-icon"><FaUpload /></span>
-            <span className="upload-label">Chose image:</span>
-            <input 
-              type="file" 
-              className="upload-file" 
-              id="imageInput" 
-              accept="image/*" />
-          </div>
-          */
+export  {CreateAd};

@@ -34,7 +34,7 @@ const useRegister=()=>{
   return {registration,register}
 }
 
-export default useRegister
+export {useRegister}
 
 function handleErrors({firstLastName,username,password,confirmPassword,email,phoneNumber}){
   if(!firstLastName || !username || !password || !confirmPassword || !email || !phoneNumber){

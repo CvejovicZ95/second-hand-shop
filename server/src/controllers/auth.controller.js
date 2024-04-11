@@ -1,6 +1,6 @@
-import User from '../models/usersSchema.js';
 import bcrypt from 'bcrypt';
-import generateTokenAndSetCookie from '../utils/generateToken.js';
+import {User} from "../models/usersSchema.js"
+import {generateTokenAndSetCookie} from "../utils/generateToken.js"
 
 export const register = async (req,res)=>{
   try{
@@ -37,10 +37,11 @@ export const register = async (req,res)=>{
     })
 
     if(newUser){
-      generateTokenAndSetCookie(newUser._id,res);
+      const token=generateTokenAndSetCookie(newUser._id,res);
       await newUser.save()
     
     res.status(201).json({
+      token:token,
       _id:newUser._id,
       username:newUser.username,
       email:newUser.email,
@@ -65,9 +66,10 @@ export const login = async (req,res) => {
       return res.status(400).json({error:'Invalid username or password'})
     }
 
-    generateTokenAndSetCookie(user._id,res)
+    const token=generateTokenAndSetCookie(user._id,res)
 
     res.status(200).json({
+      token:token,
       _id:user._id,
       username:user.username,
       email:user.email,

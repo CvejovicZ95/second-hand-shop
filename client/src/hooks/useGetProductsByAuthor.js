@@ -58,4 +58,4 @@ const useGetProductByAuthor = (authorId) => {
   return { loading, products, deleteProduct,updateProduct  };
 };
 
-export default useGetProductByAuthor;
+export {useGetProductByAuthor};

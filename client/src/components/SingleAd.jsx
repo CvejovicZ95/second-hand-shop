@@ -1,14 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
-import Header from "./Header";
-import Footer from "./Footer";
-import useGetProductById from "../hooks/useGetProductById";
-import scrollToTop from "../hooks/useScrollTop";
+import {Header} from "./Header";
+import {Footer} from "./Footer";
+import {useGetProductById} from "../hooks/useGetProductById";
+import {scrollToTop} from "../hooks/useScrollTop";
 
 const SingleAd = () => {
   const { id } = useParams();
   const { loading, product } = useGetProductById(id);
 
-  // Funkcija za razdvajanje opisa proizvoda u nove redove
   const formatDescription = (description) => {
     return description.split('\n').map((line, index) => (
       <span key={index}>{line}</span>
@@ -24,9 +23,8 @@ const SingleAd = () => {
         ) : (
           <>
             <h2>{product.name}</h2>
-            {/* Provera da li postoji product i product.about */}
             {product && product.about && formatDescription(product.about)}
-            {product.imagePath && (  // Check if imagePath exists
+            {product.imagePath && (  
             <img src={`/images/${product.imagePath}`} alt="ad" width={'350px'} />
               )}
             <div className='info-single-product'>
@@ -48,5 +46,5 @@ const SingleAd = () => {
 };
 
 
-export default SingleAd;
+export {SingleAd};
 

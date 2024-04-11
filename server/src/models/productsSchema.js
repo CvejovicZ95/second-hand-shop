@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema({
     ref: 'User'
   },
   imagePath: {
-    type: String, // Ovo je putanja do slike proizvoda
+    type: String,
     required: true
   },
   deleted: {
@@ -36,4 +36,4 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", productSchema);
 
-export default Product;
+export {Product};

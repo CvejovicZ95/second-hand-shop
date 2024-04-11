@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Logo from "./Logo";
-import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import {Logo} from "./Logo";
+import {Footer} from "./Footer";
 import { useAuthContext } from "../context/AuthContext";
-import useGetProductByAuthor from '../hooks/useGetProductsByAuthor.js';
+import {useGetProductByAuthor} from '../hooks/useGetProductsByAuthor.js';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import scrollToTop from "../hooks/useScrollTop";
+import {scrollToTop} from "../hooks/useScrollTop";
 
 const MyAds = () => {
   const { authUser } = useAuthContext();
@@ -118,4 +118,4 @@ const MyAds = () => {
 }
 
 
-export default MyAds;
+export {MyAds};

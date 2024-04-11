@@ -26,4 +26,4 @@ const Search = ({ handleSearch }) => {
   );
 };
 
-export default Search;
+export {Search};

@@ -1,10 +1,11 @@
 import {toast} from 'react-toastify';
 import { useAuthContext } from '../context/AuthContext';
+import {setCookie} from './useSetCookie';
 
 const useLogin=()=>{
-  const {setAuthUser}=useAuthContext()
+  const {login}=useAuthContext()
 
-  const login=async(username,password)=>{
+  const loginHandler=async(username,password)=>{
     const success=handleErrors({username,password})
     if(!success) return
 
@@ -24,16 +25,16 @@ const useLogin=()=>{
         }
       }
 
-      localStorage.setItem('secondHand-user',JSON.stringify(data))
-      setAuthUser(data)
+      login(data)
+      setCookie('token',data.token,30)
     }catch(error){
       toast.error(error.message)
     }
   }
-  return {login}
+  return {loginHandler}
 }
 
-export default useLogin
+export {useLogin}
 
 
 function handleErrors({username,password}){

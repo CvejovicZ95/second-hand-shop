@@ -32,7 +32,6 @@ const useUpload = () => {
       }
 
       setUpload(true);
-      //setUpload(false);
     } catch (error) {
       console.error('Error:', error);
       toast.error(error.message);
@@ -51,4 +50,4 @@ function handleErrors({ name, about, price }) {
   return true;
 }
 
-export default useUpload;
+export  {useUpload};

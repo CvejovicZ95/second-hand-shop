@@ -3,9 +3,9 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const useLogout=()=>{
-  const {setAuthUser}=useAuthContext()
+  const {logout}=useAuthContext()
 
-  const logout=async()=>{
+  const logoutHandler=async()=>{
     try{
       const res=await fetch('http://localhost:4000/api/auth/logout',{
         method:'POST',
@@ -15,13 +15,12 @@ const useLogout=()=>{
       if(data.error){
         throw new Error(data.error)
       }
-      localStorage.removeItem('secondHand-user')
-      setAuthUser(null)
+      logout()
     }catch(error){
       toast.error(error.message)
     }
   }
-  return {logout}
+  return {logoutHandler}
 }
 
-export default useLogout
+export {useLogout}

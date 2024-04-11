@@ -27,4 +27,4 @@ const useGetProducts=()=>{
   return{loading,products}
 }
 
-export default useGetProducts
+export {useGetProducts}

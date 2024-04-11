@@ -1,7 +1,7 @@
-import Logo from "./Logo"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import useLogin from "../hooks/useLogin"
+import {Logo} from "./Logo"
+import {useLogin} from "../hooks/useLogin"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -11,11 +11,11 @@ const Login=()=>{
   const [username,setUsername]=useState('')
   const [password,setPassword]=useState('')
 
-  const {login}=useLogin()
+  const {loginHandler}=useLogin()
 
   const handleSubmit=async(e)=>{
     e.preventDefault()
-    await login(username,password)
+    await loginHandler(username,password)
     
   }
 
@@ -46,4 +46,4 @@ const Login=()=>{
   )
 }
 
-export default Login
+export {Login}

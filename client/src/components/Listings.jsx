@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import useGetProducts from '../hooks/useGetProducts';
-import Search from './Search';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {useGetProducts} from '../hooks/useGetProducts';
+import {Search} from './Search';
 
 const Listings = () => {
   const { loading, products } = useGetProducts();
@@ -13,7 +13,7 @@ const Listings = () => {
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  ).filter(product => !product.deleted); // Filter out deleted products
+  ).filter(product => !product.deleted); 
 
   return (
     <>
@@ -48,4 +48,4 @@ const Listings = () => {
   );
 };
 
-export default Listings;
+export {Listings};

@@ -5,4 +5,4 @@ const scrollToTop = () => {
   });
 };
 
-export default scrollToTop
+export {scrollToTop}

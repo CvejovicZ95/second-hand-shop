@@ -1,0 +1,12 @@
+SERVER:
+
+-made src folder
+-change in generateToken file
+-made config.json for secret
+-removed export defult in whole server folder
+-DB connect from env file
+-added token in authController.js
+-added service folder and separated products service from controller
+
+
+CLIENT:
