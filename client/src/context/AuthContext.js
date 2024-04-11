@@ -19,6 +19,11 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.removeItem('authUser');
   };
 
+  const register = (userData)=>{
+    setAuthUser(userData);
+    localStorage.setItem('authUser',JSON.stringify(userData))
+  }
+
   useEffect(() => {
     const storedUser = localStorage.getItem('authUser');
     if (storedUser) {
@@ -27,7 +32,7 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ authUser, login, logout }}>
+    <AuthContext.Provider value={{ authUser, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );

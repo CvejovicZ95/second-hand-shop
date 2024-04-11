@@ -1,0 +1,54 @@
+.singleAd-page{
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 1000px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+.home-page{
+  display: block;
+  width: 35%;
+  margin: auto;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.home-page:hover{
+  background-color: #555;
+}
+.no-products{
+  color:red;
+  margin:auto;
+  font-size: 56px;
+}
+.info-single-product span{
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 768px) {
+  .singleAd-page {
+    padding: 8px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    font-size: 16px;
+  }
+  .home-page {
+    width: 50%;
+    font-size: 16px;
+  }
+  .info-single-product span {
+    font-size: 20px;
+  }
+ 
+}

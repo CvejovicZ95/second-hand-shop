@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import {Logo} from "./Logo"
-import {useLogin} from "../hooks/useLogin"
+import {Logo} from "../logo/Logo.jsx"
+import {useLogin} from "../../hooks/useLogin"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
-
+import "./Login.css";
 
 const Login=()=>{
   

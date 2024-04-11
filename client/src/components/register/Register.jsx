@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import {Logo} from "./Logo"
-import {useRegister} from "../hooks/useRegister"
+import {Logo} from "../logo/Logo.jsx"
+import {useRegister} from "../../hooks/useRegister"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import "./Register.css";
 
 const Register=()=>{
 
@@ -16,11 +17,11 @@ const Register=()=>{
     phoneNumber:''
   })
 
-  const {registration,register}=useRegister()
+  const {registration,registerClient}=useRegister()
 
   const handleSubmit=async(e)=>{
     e.preventDefault()
-    await register(inputs)
+    await registerClient(inputs)
   }
 
   return(

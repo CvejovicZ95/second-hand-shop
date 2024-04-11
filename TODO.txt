@@ -10,3 +10,13 @@ SERVER:
 
 
 CLIENT:
+
+-better organization of componenets, added folder for every comp and added css files to folders..now its easy to work with it..
+-added config.json for easier change of adress,email,etc...
+-authContext changed a little bit and after changes needed to refactor some hooks
+-api fetch moved to own folder named api, so hooks are cleaner now and we can use fetch for other thins if needed...
+-errorHandler funcitons made shorter and easier to work with it..
+
+
+ONLY LEFT:
+MIDDLEWARE RETURN UNDEFIED TOKEN FOR PROTECT ROUTE

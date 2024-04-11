@@ -1,0 +1,62 @@
+.allAds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 100px;
+  margin-bottom: 100px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.singleAd{
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  height: 350px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.singleAd h2,.myAds h2 {
+  color: #1f1f1f;
+  font-size: 20px;
+}
+.singleAd-page h2{
+  color: #1f1f1f;
+  font-size: 22px;
+}
+
+.singleAd span,.myAds span {
+  display: block;
+  margin-bottom: 5px;
+  color: #555555;
+}
+.singleAd-page span{
+  display: block;
+  margin-bottom: 5px;
+  color: #555555;
+  font-size: 22px;
+}
+.singleAd p,.myAds p{
+  color: #555;
+}
+.singleAd-page span{
+  font-size: 18px;
+  color: #555;
+}
+
+@media only screen and (max-width: 768px) {
+  .allAds {
+    display: block;
+    margin: auto;
+    text-align: center; /* Uklanjamo marginu kako bi se proizvodi centrirali */
+  }
+  .singleAd {
+    width: 90%; /* Povećavamo širinu proizvoda kako bi se centrirali na ekranu */
+    margin: 10px auto; /* Centriramo proizvode na ekranu */
+  }
+  .no-products{
+    color: red;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}

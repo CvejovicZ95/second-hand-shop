@@ -1,0 +1,107 @@
+.userAds{
+  text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
+}
+.userAds button{
+  padding: 10px;
+  margin: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.adsList{
+  display: flex;
+}
+.ad{
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin: auto;
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.ad span{
+  display: block;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  
+}
+.delete-button {
+  background-color: #ff6961;
+  color: #fff;
+}
+.update-button {
+  background-color: #50bbe6;
+  color: #fff;
+}
+.delete-button:hover {
+  background-color: #ff4238;
+}
+.update-button:hover {
+  background-color: #1db0eb;
+}
+.home-page-btn{
+  background-color: #333;
+}
+.home-page-btn:hover{
+  background-color: #555;
+}
+.update-div{
+  display: block;
+}
+.update-input{
+  width: 80%;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+.update-area{
+  width: 80%;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  height: 150px;
+}
+@media only screen and (max-width: 768px) {
+  .userAds button {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .ad {
+    padding: 15px;
+    margin: 10px auto;
+    width: 90%;
+    font-size: 14px;
+  }
+  .ad span{
+    display: block;
+    padding: 5px;
+  }
+  .singleAd {
+    padding: 8px;
+    margin: 8px auto;
+    width: 90%;
+    height: auto;
+    font-size: 14px;
+  }
+  .singleAd h2 {
+    font-size: 18px;
+  }
+  .adsList{
+    display: block;
+  }
+  .singleAd span,
+  .userAds span {
+    font-size: 14px;
+  }
+  .singleAd p,
+  .userAds p {
+    font-size: 14px;
+  }
+}

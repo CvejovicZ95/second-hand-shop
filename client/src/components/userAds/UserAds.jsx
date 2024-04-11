@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import {Logo} from "./Logo";
-import {Footer} from "./Footer";
-import { useAuthContext } from "../context/AuthContext";
-import {useGetProductByAuthor} from '../hooks/useGetProductsByAuthor.js';
+import {Logo} from "../logo/Logo.jsx"
+import {Footer} from "../layout/footer/Footer.jsx"
+import { useAuthContext } from "../../context/AuthContext.js";
+import {useGetProductByAuthor} from '../../hooks/useGetProductsByAuthor.js';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {scrollToTop} from "../hooks/useScrollTop";
+import {scrollToTop} from "../../hooks/useScrollTop.js";
+import "./UserAds.css";
 
-const MyAds = () => {
+
+const UserAds = () => {
   const { authUser } = useAuthContext();
   // eslint-disable-next-line
   const [authorId, setAuthorId] = useState(authUser ? authUser._id : null); 
-  const { loading, products, deleteProduct, updateProduct } = useGetProductByAuthor(authorId);
+  const { loading, products, handleDeleteProduct, handleUpdateProduct } = useGetProductByAuthor(authorId);
 
   const [updatedName, setUpdatedName] = useState('');
   const [updatedAbout, setUpdatedAbout] = useState('');
@@ -25,7 +27,7 @@ const MyAds = () => {
     const confirmed = window.confirm("Are you sure you want to delete this ad?");
     if (confirmed) {
       try {
-        await deleteProduct(id);
+        await handleDeleteProduct(id);
       } catch (error) {
         toast.error(error.message);
       }
@@ -41,7 +43,7 @@ const MyAds = () => {
 
   const handleSaveUpdate = async (id) => {
     try {
-      await updateProduct(id, updatedName, updatedAbout, updatedPrice);
+      await handleUpdateProduct(id, updatedName, updatedAbout, updatedPrice);
       setSelectedProduct(null); 
       setIsUpdating(false);
     } catch (error) {
@@ -50,7 +52,7 @@ const MyAds = () => {
   };
   
   return (
-    <div className="myAds">
+    <div className="userAds">
       <Logo />
       <h1>List of your Ads</h1>
       {authUser ? (
@@ -118,4 +120,4 @@ const MyAds = () => {
 }
 
 
-export {MyAds};
+export {UserAds};

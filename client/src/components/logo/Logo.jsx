@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import {scrollToTop} from "../hooks/useScrollTop";
+import {scrollToTop} from "../../hooks/useScrollTop";
 
 const Logo=()=>{
   return(

@@ -1,12 +1,12 @@
-import {Layout} from "./components/Layout";
-import {Login} from "./components/Login";
-import {Register} from "./components/Register";
-import {CreateAd} from "./components/CreateAd";
-import {MyAds} from "./components/MyAds";
-import {SingleAd} from "./components/SingleAd";
+import {Layout} from "./components/layout/Layout.jsx"
+import {Login} from "./components/login/Login.jsx"
+import {Register} from "./components/register/Register.jsx"
+import {CreateAd} from "./components/createAd/CreateAd.jsx"
+import {UserAds} from "./components/userAds/UserAds.jsx"
+import {SingleAd} from "./components/singleAd/SingleAd.jsx"
 
 import {Navigate, Route,Routes} from 'react-router-dom'
-import { useAuthContext } from "./context/AuthContext";
+import { useAuthContext } from "./context/AuthContext.js";
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
 
       <Route path="/:id" element={<SingleAd/>}/>
       
-      <Route path="/myAds" element={<MyAds />} />
+      <Route path="/myAds" element={<UserAds />} />
 
     </Routes>
   );

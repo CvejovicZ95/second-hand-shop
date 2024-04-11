@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import {getProductById} from "../api/productsApi.js"
 
 const useGetProductById = (id) => {
   const [product, setProduct] = useState('');
@@ -9,11 +10,7 @@ const useGetProductById = (id) => {
     const getProduct = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:4000/api/ads/${id}`);
-        const data = await res.json();
-        if (data.error) {
-          throw new Error(data.error);
-        }
+        const data = await getProductById(id); 
         setProduct(data);
       } catch (error) {
         toast.error(error.message);
@@ -27,4 +24,4 @@ const useGetProductById = (id) => {
   return { loading, product };
 };
 
-export {useGetProductById};
+export { useGetProductById };

@@ -3,10 +3,11 @@ import { FaUpload } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {useUpload} from "../hooks/useUploadProduct";
-import {Logo} from "./Logo";
-import {Footer} from "./Footer";
-import { useAuthContext } from "../context/AuthContext";
+import {useUpload} from "../../hooks/useUploadProduct.js";
+import {Logo} from "../logo/Logo.jsx"
+import {Footer} from "../layout/footer/Footer.jsx"
+import { useAuthContext } from "../../context/AuthContext.js";
+import "./CreateAd.css";
 
 const CreateAd = () => {
   const { authUser } = useAuthContext();
@@ -20,10 +21,10 @@ const CreateAd = () => {
   });
 
   const [completed,setCompleted]=useState(false)
-  const { upload, uploadAd } = useUpload();
+  const { upload, uploadAdHandler } = useUpload();
   
   useEffect(() => {
-    const userData = localStorage.getItem("secondHand-user");
+    const userData = localStorage.getItem("authUser");
     if (userData) {
       const { _id } = JSON.parse(userData);
       setInputs((prevInputs) => ({
@@ -51,7 +52,7 @@ const CreateAd = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await uploadAd(inputs);
+    await uploadAdHandler(inputs);
     setInputs({
       name: "",
       about: "",

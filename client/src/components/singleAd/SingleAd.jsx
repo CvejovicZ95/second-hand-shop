@@ -1,8 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
-import {Header} from "./Header";
-import {Footer} from "./Footer";
-import {useGetProductById} from "../hooks/useGetProductById";
-import {scrollToTop} from "../hooks/useScrollTop";
+import {Header} from "../layout/header/Header.jsx"
+import {Footer} from "../layout/footer/Footer.jsx"
+import {useGetProductById} from "../../hooks/useGetProductById.js";
+import {scrollToTop} from "../../hooks/useScrollTop.js";
+import "./SingleAd.css";
 
 const SingleAd = () => {
   const { id } = useParams();
