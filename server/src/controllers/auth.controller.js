@@ -1,12 +1,16 @@
 import bcrypt from 'bcrypt';
 import {User} from "../models/usersSchema.js"
 import {generateTokenAndSetCookie} from "../utils/generateToken.js"
+import { logger } from '../../logger.js';
 
 export const register = async (req,res)=>{
   try{
     const {firstLastName,username,password,confirmPassword,email,phoneNumber}=req.body
 
+    logger.info('Received registration request:', req.body);
+
     if(password !==confirmPassword){
+      logger.error('Password do not match');
       return res.status(400).json({error:'Password do not match'})
     }
     const user = await User.findOne({username})
@@ -14,14 +18,17 @@ export const register = async (req,res)=>{
     const phone = await User.findOne({phoneNumber})
 
     if(user){
+      logger.error('Username is already in use');
       return res.status(400).json({error:'Username is already in use'})
     }
 
     if(mail){
+      logger.error('Email is already in use');
       return res.status(400).json({error:'Email is already in use'})
     }
 
     if(phone){
+      logger.error('Phone number is already in use');
       return res.status(400).json({error:'Phone number is already in use'})
     }
 
@@ -48,10 +55,11 @@ export const register = async (req,res)=>{
       phoneNumber:newUser.phoneNumber
     })
    }else{
+    logger.error('Invalid user data');
     res.status(400).json({error:'Invalid user data'})
    }
   }catch(error){
-    console.log('Error in register controller',error.message)
+    logger.error('Error in register controller:', error.message);
     res.status(500).json({error:'Server error'})
   }
 }
@@ -63,6 +71,7 @@ export const login = async (req,res) => {
     const isPasswordCorrect=await bcrypt.compare(password,user.password || "")
 
     if(!user || !isPasswordCorrect){
+      logger.error('Invalid username or password');
       return res.status(400).json({error:'Invalid username or password'})
     }
 
@@ -76,7 +85,7 @@ export const login = async (req,res) => {
       phoneNumber:user.phoneNumber
     })
   }catch(error){
-    console.log('Error in login controller',error.message)
+    logger.error('Error in login controller:', error.message);
     res.status(500).json({error:'Server error'})
   }
 }
@@ -86,7 +95,7 @@ export const logout = async (req,res)=>{
     res.cookie("token","",{maxAge:0})
     res.status(200).json({message:'Logged out successfully'})
   }catch(error){
-    console.log('Error in logout controller',error.message)
+    logger.error('Error in logout controller:', error.message);
     res.status(500).json({error:'Server error'})
   }
 }
