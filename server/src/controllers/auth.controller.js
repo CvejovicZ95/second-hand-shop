@@ -46,6 +46,8 @@ export const register = async (req,res)=>{
     if(newUser){
       const token=generateTokenAndSetCookie(newUser._id,res);
       await newUser.save()
+
+      logger.info('User registered successfully:', newUser.username);
     
     res.status(201).json({
       token:token,
@@ -77,6 +79,7 @@ export const login = async (req,res) => {
 
     const token=generateTokenAndSetCookie(user._id,res)
 
+    logger.info('User logged in successfully:', user.username);
     res.status(200).json({
       token:token,
       _id:user._id,
@@ -93,6 +96,7 @@ export const login = async (req,res) => {
 export const logout = async (req,res)=>{
   try{
     res.cookie("token","",{maxAge:0})
+    logger.info('User logged out successfully');
     res.status(200).json({message:'Logged out successfully'})
   }catch(error){
     logger.error('Error in logout controller:', error.message);

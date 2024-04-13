@@ -22,10 +22,8 @@ const upload = multer({ storage: storage }).single('image');
 export const getAllProductsController = async (req, res) => {
   try {
     const allProducts = await getAllProducts();
-    logger.info('Fetched all products successfully');
     res.status(200).json(allProducts);
   } catch (error) {
-    logger.error('Error in getAllProducts controller:', error.message);
     res.status(500).json({ error: 'Server error' });
   }
 };
@@ -37,10 +35,8 @@ export const getProductByIdController = async (req, res) => {
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }
-    logger.info('Fetched product by id:', productId);
     res.status(200).json(product);
   } catch (error) {
-    logger.error('Error in getProductById controller:', error.message);
     res.status(500).json({ error: 'Server error' });
   }
 };
@@ -50,12 +46,10 @@ export const getProductsByAuthorController = async (req, res) => {
     const authorId = req.params.authorId;
     const products = await getProductsByAuthor(authorId);
     if (!products || products.length === 0) {
-      logger.error('No products posted by this user');
       return res.status(404).send('No products posted by this user');
     }
     res.status(200).send(products);
   } catch (error) {
-    logger.error('Error in getProductsByAuthor controller:', error.message);
     res.status(500).json({ error: 'Server error' });
   }
 };
@@ -111,10 +105,8 @@ export const updateProductController = async (req, res) => {
     const productId = req.params.id;
     const newData = req.body;
     const updatedProduct = await updateProductById(productId, newData);
-    logger.info('Product updated successfully');
     res.status(200).json(updatedProduct);
   } catch (error) {
-    logger.error('Error in updateProduct controller:', error.message);
     res.status(500).json('Server error');
   }
 };
@@ -123,10 +115,8 @@ export const markProductAsDeletedController = async (req, res) => {
   try {
     const productId = req.params.id;
     await markProductAsDeleted(productId);
-    logger.info('Product marked as deleted successfully');
     res.status(200).json({ message: 'Product is successfully marked as deleted' });
   } catch (error) {
-    logger.error('Error in markProductAsDeleted controller:', error.message);
     res.status(500).json('Server error');
   }
 };

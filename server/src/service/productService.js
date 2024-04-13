@@ -4,7 +4,6 @@ import {logger} from "../../logger.js"
 export const getAllProducts = async () => {
   try {
     const products = await Product.find().populate('authorId');
-    logger.info('Fetched all products successfully');
     return products;
   } catch (error) {
     logger.error('Error fetching all products:', error.message);
@@ -19,7 +18,6 @@ export const getProductById = async (productId) => {
       logger.error('Product not found');
       throw new Error('Product not found');
     }
-    logger.info('Fetched product by ID:', productId);
     return product;
   } catch (error) {
     logger.error('Error fetching product by ID:', error.message);
@@ -30,7 +28,6 @@ export const getProductById = async (productId) => {
 export const getProductsByAuthor = async (authorId) => {
   try {
     const products = await Product.find({ authorId }).populate('authorId');
-    logger.info('Fetched products by author:', authorId);
     return products;
   } catch (error) {
     logger.error('Error fetching products by author:', error.message);

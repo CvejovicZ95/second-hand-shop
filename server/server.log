@@ -1,12 +1,10 @@
-{"level":"error","message":"Error in login controller:"}
-{"level":"error","message":"Invalid username or password"}
-{"level":"info","message":"Fetched all products successfully"}
-{"level":"info","message":"Fetched all products successfully"}
-{"level":"info","message":"Fetched all products successfully"}
-{"level":"info","message":"Fetched all products successfully"}
-{"level":"info","message":"Product uploaded successfully"}
-{"level":"info","message":"Fetched all products successfully"}
-{"level":"info","message":"Fetched all products successfully"}
-{"level":"info","message":"Product marked as deleted successfully"}
-{"level":"info","message":"Fetched all products successfully"}
-{"level":"info","message":"Fetched all products successfully"}
+{"buffer":{"data":[101,244,131,149,143,193,146,100,93,40,97,210],"type":"Buffer"},"level":"info","message":"Product updated successfully:","timestamp":"2024-04-13T14:06:13.045Z"}
+{"level":"info","message":"Product updated successfully","timestamp":"2024-04-13T14:06:13.047Z"}
+{"level":"info","message":"Product uploaded successfully","timestamp":"2024-04-13T14:06:43.710Z"}
+{"level":"info","message":"Product marked as deleted successfully:","timestamp":"2024-04-13T14:06:53.116Z"}
+{"level":"info","message":"Product marked as deleted successfully","timestamp":"2024-04-13T14:06:53.119Z"}
+{"buffer":{"data":[101,244,131,149,143,193,146,100,93,40,97,210],"type":"Buffer"},"level":"info","message":"Product updated successfully:","timestamp":"2024-04-13T14:08:39.627Z"}
+{"level":"info","message":"Product uploaded successfully","timestamp":"2024-04-13T14:08:55.367Z"}
+{"level":"info","message":"Product marked as deleted successfully:","timestamp":"2024-04-13T14:09:02.902Z"}
+{"level":"info","message":"User logged in successfully:","timestamp":"2024-04-13T14:11:37.557Z"}
+{"level":"info","message":"User logged out successfully","timestamp":"2024-04-13T14:11:47.549Z"}
