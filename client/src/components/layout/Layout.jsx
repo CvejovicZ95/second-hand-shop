@@ -1,7 +1,7 @@
-import {Header} from "../layout/header/Header.jsx"
-import {Listings} from "../layout/listings/Listings.jsx"
+import {Header} from "./Header/Header.jsx"
+import {Listings} from "./Listings/Listings.jsx"
 import { Outlet } from 'react-router-dom';
-import {Footer} from "../layout/footer/Footer.jsx"
+import {Footer} from "./Footer/Footer.jsx"
 
 const Layout=()=>{
   return(

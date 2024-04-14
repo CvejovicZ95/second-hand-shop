@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4000';
+import config from '../config.json'
+const apiUrl=config.API_BASE_URL
 
 export const loginUser = async (username, password) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
+    const res = await fetch(`${apiUrl}/api/auth/login`, {
       method: "POST",
       headers: { 'Content-Type': "application/json" },
       body: JSON.stringify({ username, password }) 
@@ -23,7 +24,7 @@ export const loginUser = async (username, password) => {
 
 export const logoutUser = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/auth/logout`, {
+    const res = await fetch(`${apiUrl}/api/auth/logout`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     });
@@ -38,7 +39,7 @@ export const logoutUser = async () => {
 
 export const registerUser = async ({ firstLastName, username, password, confirmPassword, email, phoneNumber }) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
+    const res = await fetch(`${apiUrl}/api/auth/register`, {
       method: "POST",
       headers: { 'Content-Type': "application/json" },
       body: JSON.stringify({ firstLastName, username, password, confirmPassword, email, phoneNumber }) 

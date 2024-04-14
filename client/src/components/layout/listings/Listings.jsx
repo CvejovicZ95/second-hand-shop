@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {useGetProducts} from "../../../hooks/useGetProducts.js"
-import {Search} from "../../search/Search.jsx"
+import {Search} from "../../Search/Search.jsx"
 import "./Listings.css";
 const Listings = () => {
   const { loading, products } = useGetProducts();

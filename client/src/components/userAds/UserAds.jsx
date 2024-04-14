@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import {Logo} from "../logo/Logo.jsx"
-import {Footer} from "../layout/footer/Footer.jsx"
+import {Logo} from "../Logo/Logo.jsx"
+import {Footer} from "../Layout/Footer/Footer.jsx"
 import { useAuthContext } from "../../context/AuthContext.js";
 import {useGetProductByAuthor} from '../../hooks/useGetProductsByAuthor.js';
 import { toast } from 'react-toastify';

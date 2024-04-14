@@ -1,7 +1,7 @@
 import { FaInstagram } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
-import {Logo} from "../../logo/Logo.jsx"
+import {Logo} from "../../Logo/Logo.jsx"
 import "./Footer.css";
 import config from '../../../config.json'
 const Footer=()=>{

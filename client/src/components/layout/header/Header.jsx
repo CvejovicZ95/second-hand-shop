@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useAuthContext } from "../../../context/AuthContext.js"
-import {Logo} from "../../logo/Logo.jsx"
+import {Logo} from "../../Logo/Logo.jsx"
 import {useLogout} from "../../../hooks/useLogout.js"
 import "./Header.css";
 

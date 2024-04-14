@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4000';
+import config from '../config.json'
+const apiUrl=config.API_BASE_URL
 
 export const getProductById = async (id) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/ads/${id}`);
+    const res = await fetch(`${apiUrl}/api/ads/${id}`);
     const data = await res.json();
     if (data.error) {
       throw new Error(data.error);
@@ -15,7 +16,7 @@ export const getProductById = async (id) => {
 
 export const getProducts = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/ads`);
+    const res = await fetch(`${apiUrl}/api/ads`);
     const data = await res.json();
     if (data.error) {
       throw new Error(data.error);
@@ -28,7 +29,7 @@ export const getProducts = async () => {
 
 export const getProductsByAuthor = async (authorId) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/ads/author/${authorId}`);
+    const res = await fetch(`${apiUrl}/api/ads/author/${authorId}`);
     const data = await res.json();
     if (data.error) {
       throw new Error(data.error);
@@ -41,7 +42,7 @@ export const getProductsByAuthor = async (authorId) => {
 
 export const deleteProduct = async (id) => {
   try {
-    await fetch(`${API_BASE_URL}/api/ads/delete/${id}`, {
+    await fetch(`${apiUrl}/api/ads/delete/${id}`, {
       method: "PUT",
       headers: { 'Content-Type': "application/json" },
       body: JSON.stringify({ deleted: true }) 
@@ -53,7 +54,7 @@ export const deleteProduct = async (id) => {
 
 export const updateProduct = async (id, updatedName, updatedAbout, updatedPrice) => {
   try {
-    await fetch(`${API_BASE_URL}/api/ads/update/${id}`, {
+    await fetch(`${apiUrl}/api/ads/update/${id}`, {
       method: "PUT",
       headers: { 'Content-Type': "application/json" },
       body: JSON.stringify({ name: updatedName, about: updatedAbout, price: updatedPrice }) 
@@ -72,7 +73,7 @@ export const uploadAd = async ({ name, about, price, authorId, image }) => {
     formData.append('authorId', authorId);
     formData.append('image', image);
 
-    const res = await fetch(`${API_BASE_URL}/api/ads`, {
+    const res = await fetch(`${apiUrl}/api/ads`, {
       method: 'POST',
       body: formData
     });
