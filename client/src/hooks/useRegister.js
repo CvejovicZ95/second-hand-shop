@@ -4,7 +4,7 @@ import {registerUser} from "../api/usersApi.js"
 import { useState } from 'react';
 import { setCookie } from './useSetCookie';
 
-const useRegister = () => {
+export const useRegister = () => {
   const [registration, setRegistration] = useState(false);
   const { register } = useAuthContext();
 
@@ -25,8 +25,6 @@ const useRegister = () => {
 
   return { registration, registerClient };
 };
-
-export { useRegister };
 
 function handleErrors({ firstLastName, username, password, confirmPassword, email, phoneNumber }) {
   if (!firstLastName || !username || !password || !confirmPassword || !email || !phoneNumber) {

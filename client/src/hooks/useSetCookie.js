@@ -1,4 +1,4 @@
-function setCookie(name, value, minutes) {
+export function setCookie(name, value, minutes) {
   let expires = "";
   if (minutes) {
       let date = new Date();
@@ -7,5 +7,3 @@ function setCookie(name, value, minutes) {
   }
   document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
-
-export {setCookie}

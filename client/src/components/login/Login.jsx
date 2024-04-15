@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import "./Login.css";
 
-const Login=()=>{
+export const Login=()=>{
   
   const [username,setUsername]=useState('')
   const [password,setPassword]=useState('')
@@ -45,5 +45,3 @@ const Login=()=>{
     </div>
   )
 }
-
-export {Login}

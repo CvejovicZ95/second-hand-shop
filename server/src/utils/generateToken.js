@@ -9,7 +9,7 @@ const configPath = path.resolve(currentDir, '../../config.json');
 const configData = fs.readFileSync(configPath);
 const config = JSON.parse(configData);
 
-const generateTokenAndSetCookie = (userId, res) => {
+export const generateTokenAndSetCookie = (userId, res) => {
   const token = jwt.sign({ userId }, config.secret_key, {
     expiresIn: '30m'
   });
@@ -22,5 +22,3 @@ const generateTokenAndSetCookie = (userId, res) => {
 
   return token;
 }
-
-export { generateTokenAndSetCookie };

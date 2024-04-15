@@ -9,8 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {scrollToTop} from "../../hooks/useScrollTop.js";
 import "./UserAds.css";
 
-
-const UserAds = () => {
+export const UserAds = () => {
   const { authUser } = useAuthContext();
   // eslint-disable-next-line
   const [authorId, setAuthorId] = useState(authUser ? authUser._id : null); 
@@ -118,6 +117,3 @@ const UserAds = () => {
     </div>
   )
 }
-
-
-export {UserAds};

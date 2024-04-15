@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { getProductsByAuthor, deleteProduct, updateProduct } from "../api/productsApi.js"
 
-const useGetProductByAuthor = (authorId) => {
+export const useGetProductByAuthor = (authorId) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -45,5 +45,3 @@ const useGetProductByAuthor = (authorId) => {
 
   return { loading, products, handleDeleteProduct, handleUpdateProduct };
 };
-
-export { useGetProductByAuthor };

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import {useGetProducts} from "../../../hooks/useGetProducts.js"
 import {Search} from "../../Search/Search.jsx"
 import "./Listings.css";
-const Listings = () => {
+
+export const Listings = () => {
   const { loading, products } = useGetProducts();
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -47,5 +48,3 @@ const Listings = () => {
     </>
   );
 };
-
-export {Listings};

@@ -9,7 +9,7 @@ import {Footer} from "../Layout/Footer/Footer.jsx"
 import { useAuthContext } from "../../context/AuthContext.js";
 import "./CreateAd.css";
 
-const CreateAd = () => {
+export const CreateAd = () => {
   const { authUser } = useAuthContext();
   
   const [inputs, setInputs] = useState({
@@ -132,5 +132,3 @@ const CreateAd = () => {
     </div>
   );
 };
-
-export  {CreateAd};

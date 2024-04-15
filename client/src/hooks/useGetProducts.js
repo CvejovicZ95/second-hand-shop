@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import {getProducts} from '../api/productsApi';
 
-const useGetProducts = () => {
+export const useGetProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -23,5 +23,3 @@ const useGetProducts = () => {
   
   return { loading, products };
 };
-
-export { useGetProducts };

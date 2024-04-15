@@ -64,7 +64,7 @@ export const updateProduct = async (id, updatedName, updatedAbout, updatedPrice)
   }
 };
 
-export const uploadAd = async ({ name, about, price, authorId, image }) => {
+export const uploadAd = async ( name, about, price, authorId, image ) => {
   try {
     const formData = new FormData();
     formData.append('name', name);

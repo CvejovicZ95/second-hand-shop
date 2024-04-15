@@ -5,7 +5,7 @@ import {useGetProductById} from "../../hooks/useGetProductById.js";
 import {scrollToTop} from "../../hooks/useScrollTop.js";
 import "./SingleAd.css";
 
-const SingleAd = () => {
+export const SingleAd = () => {
   const { id } = useParams();
   const { loading, product } = useGetProductById(id);
 
@@ -45,7 +45,3 @@ const SingleAd = () => {
     </div>
   );
 };
-
-
-export {SingleAd};
-

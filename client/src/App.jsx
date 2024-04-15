@@ -8,8 +8,7 @@ import {SingleAd} from "./components/SingleAd/SingleAd.jsx"
 import {Navigate, Route,Routes} from 'react-router-dom'
 import { useAuthContext } from "./context/AuthContext.js";
 
-
-function App() {
+export function App() {
   const {authUser}=useAuthContext()
   return (
     <Routes>
@@ -28,5 +27,3 @@ function App() {
     </Routes>
   );
 }
-
-export {App};

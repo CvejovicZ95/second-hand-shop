@@ -3,7 +3,7 @@ import {Listings} from "./Listings/Listings.jsx"
 import { Outlet } from 'react-router-dom';
 import {Footer} from "./Footer/Footer.jsx"
 
-const Layout=()=>{
+export const Layout=()=>{
   return(
     <div className="App">
       <Header/>
@@ -13,5 +13,3 @@ const Layout=()=>{
     </div>
   )
 }
-
-export {Layout}

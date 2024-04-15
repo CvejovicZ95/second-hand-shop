@@ -48,11 +48,11 @@
   .allAds {
     display: block;
     margin: auto;
-    text-align: center; /* Uklanjamo marginu kako bi se proizvodi centrirali */
+    text-align: center;  
   }
   .singleAd {
-    width: 90%; /* Povećavamo širinu proizvoda kako bi se centrirali na ekranu */
-    margin: 10px auto; /* Centriramo proizvode na ekranu */
+    width: 90%; 
+    margin: 10px auto; 
   }
   .no-products{
     color: red;

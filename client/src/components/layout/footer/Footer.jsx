@@ -4,7 +4,8 @@ import { MdOutlineEmail } from "react-icons/md";
 import {Logo} from "../../Logo/Logo.jsx"
 import "./Footer.css";
 import config from '../../../config.json'
-const Footer=()=>{
+
+export const Footer=()=>{
   return(
     <footer className="footer">
       <div className="contact-info">
@@ -35,5 +36,3 @@ const Footer=()=>{
     </footer>
   )
 }
-
-export {Footer}

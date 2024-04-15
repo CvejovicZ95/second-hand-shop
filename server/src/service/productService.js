@@ -34,6 +34,7 @@ export const getProductsByAuthor = async (authorId) => {
     throw new Error('Error fetching products by author');
   }
 };
+
 export const updateProductById = async (productId, newData) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(productId, newData, { new: true });

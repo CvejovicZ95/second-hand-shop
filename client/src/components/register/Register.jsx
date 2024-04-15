@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import "./Register.css";
 
-const Register=()=>{
+export const Register=()=>{
 
   const [inputs,setInputs]=useState({
     firstLastName:'',
@@ -79,5 +79,3 @@ const Register=()=>{
     </div>
   )
 }
-
-export {Register}

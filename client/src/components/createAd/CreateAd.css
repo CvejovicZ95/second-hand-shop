@@ -60,7 +60,7 @@
   text-decoration: none;
 }
 .upload-file {
-  opacity: 0; /* Sakrij stvarno input polje */
+  opacity: 0; 
   position: absolute;
   width: 100%;
   height: 100%;

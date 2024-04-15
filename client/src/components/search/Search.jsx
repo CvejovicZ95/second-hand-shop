@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./Search.css";
 
-const Search = ({ handleSearch }) => {
+export const Search = ({ handleSearch }) => {
   const [search, setSearch] = useState("");
 
   const handleChange = (e) => {
@@ -26,5 +26,3 @@ const Search = ({ handleSearch }) => {
     </form>
   );
 };
-
-export {Search};
