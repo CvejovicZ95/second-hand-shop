@@ -1,57 +1,45 @@
-import {useAuthContext} from '../context/AuthContext';
-import {toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import { useAuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
+import {registerUser} from "../api/usersApi.js" 
 import { useState } from 'react';
+import { setCookie } from './useSetCookie';
 
-const useRegister=()=>{
-  
-  const [registration,setRegistration]=useState(false)
-  const {setAuthUser}=useAuthContext()
+export const useRegister = () => {
+  const [registration, setRegistration] = useState(false);
+  const { register } = useAuthContext();
 
-  const register = async ({firstLastName,username,password,confirmPassword,email,phoneNumber})=>{
-    const success=handleErrors({firstLastName,username,password,confirmPassword,email,phoneNumber})
-    if(!success) return
+  const registerClient = async ({ firstLastName, username, password, confirmPassword, email, phoneNumber }) => {
+    const success = handleErrors({ firstLastName, username, password, confirmPassword, email, phoneNumber });
+    if (!success) return;
 
-    try{
-      const res=await fetch('http://localhost:4000/api/auth/register',{
-        method:"POST",
-        headers:{'Content-Type':"application/json"},
-        body:JSON.stringify({firstLastName,username,password,confirmPassword,email,phoneNumber})
-      })
-      const data=await res.json()
-      if(data.error){
-        throw new Error(data.error)
-      }
-      localStorage.setItem('secondHand-user',JSON.stringify(data))
-
-      setAuthUser(data)
-      setRegistration(true)
-    }catch(error){
-      setRegistration(false)
-      toast.error(error.message)
+    try {
+      const data = await registerUser({ firstLastName, username, password, confirmPassword, email, phoneNumber });
+      register(data)
+      setCookie('token', data.token, 30);
+      setRegistration(true);
+    } catch (error) {
+      setRegistration(false);
+      toast.error(error.message);
     }
-  }
-  return {registration,register}
-}
+  };
 
-export default useRegister
+  return { registration, registerClient };
+};
 
-function handleErrors({firstLastName,username,password,confirmPassword,email,phoneNumber}){
-  if(!firstLastName || !username || !password || !confirmPassword || !email || !phoneNumber){
-    toast.error('Please fill in all feilds')
-    return false
+function handleErrors({ firstLastName, username, password, confirmPassword, email, phoneNumber }) {
+  if (!firstLastName || !username || !password || !confirmPassword || !email || !phoneNumber) {
+    toast.error('Please fill in all fields');
+    return false;
   }
-  if(password !==confirmPassword){
-    toast.error('Password do not match')
-    return false
+  if (password !== confirmPassword || password.length < 6 || username.length < 4 || firstLastName.length < 5 || phoneNumber.length < 8) {
+    toast.error(
+      password !== confirmPassword ? 'Passwords do not match' :
+      password.length < 6 ? 'Password must be at least 6 characters' :
+      username.length < 4 ? 'Username must be at least 4 characters' :
+      firstLastName.length < 5 ? 'Please enter full first and last name' :
+      phoneNumber.length < 8 ? 'Please enter valid phone number' : ''
+    );
+    return false;
   }
-  if(password.length < 6){
-    toast.error('Password must be at least 6 characters')
-    return false
-  }
-  if(username.length < 3){
-    toast.error('Username must be at least 4 characters')
-    return false
-  }
-  return true
+  return true;
 }

@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { getProductsByAuthor, deleteProduct, updateProduct } from "../api/productsApi.js"
 
-const useGetProductByAuthor = (authorId) => {
+export const useGetProductByAuthor = (authorId) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const getProductsbyAuthor = async () => {
+    const fetchProductsByAuthor = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:4000/api/ads/author/${authorId}`);
-        const data = await res.json();
-        if (data.error) {
-          throw new Error(data.error);
-        }
+        const data = await getProductsByAuthor(authorId); 
         setProducts(data);
       } catch (error) {
         toast.error(error.message);
@@ -21,29 +18,21 @@ const useGetProductByAuthor = (authorId) => {
         setLoading(false);
       }
     };
-    getProductsbyAuthor();
+    fetchProductsByAuthor();
   }, [authorId]);
   
-  const deleteProduct = async (id) => {
+  const handleDeleteProduct = async (id) => {
     try {
-      await fetch(`http://localhost:4000/api/ads/delete/${id}`, {
-        method: "PUT",
-        headers: { 'Content-Type': "application/json" },
-        body: JSON.stringify({ deleted: true }) 
-      });
+      await deleteProduct(id); 
       setProducts(prevProducts => prevProducts.filter(product => product._id !== id));
     } catch (error) {
       toast.error(error.message);
     }
   };
 
-  const updateProduct = async (id, updatedName, updatedAbout, updatedPrice) => {
+  const handleUpdateProduct = async (id, updatedName, updatedAbout, updatedPrice) => {
     try {
-      await fetch(`http://localhost:4000/api/ads/update/${id}`, {
-        method: "PUT",
-        headers: { 'Content-Type': "application/json" },
-        body: JSON.stringify({ name: updatedName, about: updatedAbout, price: updatedPrice }) 
-      });
+      await updateProduct(id, updatedName, updatedAbout, updatedPrice);
       setProducts(prevProducts =>
         prevProducts.map(product =>
           product._id === id ? { ...product, name: updatedName, about: updatedAbout, price: updatedPrice } : product
@@ -54,8 +43,5 @@ const useGetProductByAuthor = (authorId) => {
     }
   };
 
-
-  return { loading, products, deleteProduct,updateProduct  };
+  return { loading, products, handleDeleteProduct, handleUpdateProduct };
 };
-
-export default useGetProductByAuthor;

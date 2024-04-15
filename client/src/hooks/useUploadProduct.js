@@ -1,38 +1,18 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import {uploadAd} from "../api/productsApi.js";
 
-const useUpload = () => {
+export const useUpload = () => {
   const [upload, setUpload] = useState(false);
 
-  const uploadAd = async ({ name, about, price, authorId, image }) => {
-    const success = handleErrors({ name, about, price });
-    if (!success) return;
-
+  const uploadAdHandler = async ({ name, about, price, authorId, image }) => {
     try {
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('about', about);
-      formData.append('price', price);
-      formData.append('authorId', authorId);
-      formData.append('image', image);
+      const success = handleErrors({ name, about, price });
+      if (!success) return;
 
-      const res = await fetch('http://localhost:4000/api/ads', {
-        method: 'POST',
-        body: formData
-      });
-
-      if (!res.ok) {
-        throw new Error('Failed to upload ad');
-      }
-
-      const data = await res.json();
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
+      await uploadAd( name, about, price, authorId, image ); 
 
       setUpload(true);
-      //setUpload(false);
     } catch (error) {
       console.error('Error:', error);
       toast.error(error.message);
@@ -40,7 +20,7 @@ const useUpload = () => {
     }
   };
 
-  return { upload, uploadAd };
+  return { upload, uploadAdHandler };
 };
 
 function handleErrors({ name, about, price }) {
@@ -48,7 +28,9 @@ function handleErrors({ name, about, price }) {
     toast.error('Please fill all fields');
     return false;
   }
+  if (isNaN(price)) {
+    toast.error('Please enter a valid price');
+    return false;
+  }
   return true;
 }
-
-export default useUpload;

@@ -1,12 +1,11 @@
 import express from 'express'
-import connect from './db/connectDB.js'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
-import authRoutes from './routes/auth.routes.js'
-import productsRoutes from './routes/products.routes.js'
 import cors from 'cors'
 
-
+import {connect} from "./src/db/connectDB.js"
+import {authRouter} from "./src/routes/auth.routes.js"
+import {productRouter} from "./src/routes/products.routes.js"
 
 const app=express()
 dotenv.config();
@@ -24,14 +23,10 @@ app.use(express.json())
 
 app.use(cookieParser());
 
-
-app.use('/api/auth',authRoutes)
-app.use('/api',productsRoutes)
-
+app.use('/api/auth',authRouter)
+app.use('/api',productRouter)
 
 app.listen(PORT,()=>{
   connect();
   console.log(`Server is listening on port ${PORT}`)
 })
-
-//middleware error need to fix, token problem on browser
