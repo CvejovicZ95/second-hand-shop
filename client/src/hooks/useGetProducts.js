@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import {getProducts} from '../api/productsApi';
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { getProducts } from "../api/productsApi";
 
 export const useGetProducts = () => {
   const [products, setProducts] = useState([]);
@@ -10,7 +10,7 @@ export const useGetProducts = () => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const data = await getProducts(); 
+        const data = await getProducts();
         setProducts(data);
       } catch (error) {
         toast.error(error.message);
@@ -20,6 +20,6 @@ export const useGetProducts = () => {
     };
     fetchProducts();
   }, []);
-  
+
   return { loading, products };
 };

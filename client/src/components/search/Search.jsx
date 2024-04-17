@@ -1,6 +1,8 @@
+import React from "react";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./Search.css";
+import PropTypes from "prop-types";
 
 export const Search = ({ handleSearch }) => {
   const [search, setSearch] = useState("");
@@ -26,3 +28,4 @@ export const Search = ({ handleSearch }) => {
     </form>
   );
 };
+Search.propTypes = { handleSearch: PropTypes.func };

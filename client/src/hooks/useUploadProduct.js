@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { toast } from 'react-toastify';
-import {uploadAd} from "../api/productsApi.js";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { uploadAd } from "../api/productsApi.js";
 
 export const useUpload = () => {
   const [upload, setUpload] = useState(false);
@@ -10,11 +10,11 @@ export const useUpload = () => {
       const success = handleErrors({ name, about, price });
       if (!success) return;
 
-      await uploadAd( name, about, price, authorId, image ); 
+      await uploadAd(name, about, price, authorId, image);
 
       setUpload(true);
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
       toast.error(error.message);
       setUpload(false);
     }
@@ -25,11 +25,11 @@ export const useUpload = () => {
 
 function handleErrors({ name, about, price }) {
   if (!name || !about || !price) {
-    toast.error('Please fill all fields');
+    toast.error("Please fill all fields");
     return false;
   }
   if (isNaN(price)) {
-    toast.error('Please enter a valid price');
+    toast.error("Please enter a valid price");
     return false;
   }
   return true;

@@ -1,5 +1,5 @@
-import config from '../config.json'
-const apiUrl=config.API_BASE_URL
+import config from "../config.json";
+const apiUrl = config.API_BASE_URL;
 
 export const getProductById = async (id) => {
   try {
@@ -44,42 +44,51 @@ export const deleteProduct = async (id) => {
   try {
     await fetch(`${apiUrl}/api/ads/delete/${id}`, {
       method: "PUT",
-      headers: { 'Content-Type': "application/json" },
-      body: JSON.stringify({ deleted: true }) 
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ deleted: true }),
     });
   } catch (error) {
     throw new Error(error.message);
   }
 };
 
-export const updateProduct = async (id, updatedName, updatedAbout, updatedPrice) => {
+export const updateProduct = async (
+  id,
+  updatedName,
+  updatedAbout,
+  updatedPrice,
+) => {
   try {
     await fetch(`${apiUrl}/api/ads/update/${id}`, {
       method: "PUT",
-      headers: { 'Content-Type': "application/json" },
-      body: JSON.stringify({ name: updatedName, about: updatedAbout, price: updatedPrice }) 
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: updatedName,
+        about: updatedAbout,
+        price: updatedPrice,
+      }),
     });
   } catch (error) {
     throw new Error(error.message);
   }
 };
 
-export const uploadAd = async ( name, about, price, authorId, image ) => {
+export const uploadAd = async (name, about, price, authorId, image) => {
   try {
     const formData = new FormData();
-    formData.append('name', name);
-    formData.append('about', about);
-    formData.append('price', price);
-    formData.append('authorId', authorId);
-    formData.append('image', image);
+    formData.append("name", name);
+    formData.append("about", about);
+    formData.append("price", price);
+    formData.append("authorId", authorId);
+    formData.append("image", image);
 
     const res = await fetch(`${apiUrl}/api/ads`, {
-      method: 'POST',
-      body: formData
+      method: "POST",
+      body: formData,
     });
 
     if (!res.ok) {
-      throw new Error('Failed to upload ad');
+      throw new Error("Failed to upload ad");
     }
 
     const data = await res.json();
