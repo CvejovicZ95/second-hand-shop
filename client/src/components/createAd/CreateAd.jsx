@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useUpload } from "../../hooks/useUploadProduct.js";
-import { Logo } from "../Logo/Logo.jsx";
-import { Footer } from "../Layout/Footer/Footer.jsx";
+import { Logo } from "../logo/Logo.jsx";
+import { Footer } from "../layout/footer/Footer.jsx";
 import { useAuthContext } from "../../context/AuthContext.js";
 import "./CreateAd.css";
 
