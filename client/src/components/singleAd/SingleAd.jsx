@@ -1,8 +1,9 @@
-import { useParams, Link } from 'react-router-dom';
-import {Header} from "../Layout/Header/Header.jsx"
-import {Footer} from "../Layout/Footer/Footer.jsx"
-import {useGetProductById} from "../../hooks/useGetProductById.js";
-import {scrollToTop} from "../../hooks/useScrollTop.js";
+import React from "react";
+import { useParams, Link } from "react-router-dom";
+import { Header } from "../layout/header/Header.jsx";
+import { Footer } from "../layout/footer/Footer.jsx";
+import { useGetProductById } from "../../hooks/useGetProductById.js";
+import { scrollToTop } from "../../hooks/useScrollTop.js";
 import "./SingleAd.css";
 
 export const SingleAd = () => {
@@ -10,9 +11,9 @@ export const SingleAd = () => {
   const { loading, product } = useGetProductById(id);
 
   const formatDescription = (description) => {
-    return description.split('\n').map((line, index) => (
-      <span key={index}>{line}</span>
-    ));
+    return description
+      .split("\n")
+      .map((line, index) => <span key={index}>{line}</span>);
   };
 
   return (
@@ -25,10 +26,14 @@ export const SingleAd = () => {
           <>
             <h2>{product.name}</h2>
             {product && product.about && formatDescription(product.about)}
-            {product.imagePath && (  
-            <img src={`/images/${product.imagePath}`} alt="ad" width={'350px'} />
-              )}
-            <div className='info-single-product'>
+            {product.imagePath && (
+              <img
+                src={`/images/${product.imagePath}`}
+                alt="ad"
+                width={"350px"}
+              />
+            )}
+            <div className="info-single-product">
               <span>Price: {product.price} €</span>
               {product.authorId && (
                 <div>
@@ -37,7 +42,11 @@ export const SingleAd = () => {
                 </div>
               )}
             </div>
-            <Link to={'/'}><button onClick={scrollToTop} className='home-page'>Back to Home Page</button></Link>
+            <Link to={"/"}>
+              <button onClick={scrollToTop} className="home-page">
+                Back to Home Page
+              </button>
+            </Link>
           </>
         )}
       </div>

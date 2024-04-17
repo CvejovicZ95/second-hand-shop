@@ -1,6 +1,10 @@
-import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import { getProductsByAuthor, deleteProduct, updateProduct } from "../api/productsApi.js"
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import {
+  getProductsByAuthor,
+  deleteProduct,
+  updateProduct,
+} from "../api/productsApi.js";
 
 export const useGetProductByAuthor = (authorId) => {
   const [products, setProducts] = useState([]);
@@ -10,7 +14,7 @@ export const useGetProductByAuthor = (authorId) => {
     const fetchProductsByAuthor = async () => {
       setLoading(true);
       try {
-        const data = await getProductsByAuthor(authorId); 
+        const data = await getProductsByAuthor(authorId);
         setProducts(data);
       } catch (error) {
         toast.error(error.message);
@@ -20,23 +24,37 @@ export const useGetProductByAuthor = (authorId) => {
     };
     fetchProductsByAuthor();
   }, [authorId]);
-  
+
   const handleDeleteProduct = async (id) => {
     try {
-      await deleteProduct(id); 
-      setProducts(prevProducts => prevProducts.filter(product => product._id !== id));
+      await deleteProduct(id);
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product._id !== id),
+      );
     } catch (error) {
       toast.error(error.message);
     }
   };
 
-  const handleUpdateProduct = async (id, updatedName, updatedAbout, updatedPrice) => {
+  const handleUpdateProduct = async (
+    id,
+    updatedName,
+    updatedAbout,
+    updatedPrice,
+  ) => {
     try {
       await updateProduct(id, updatedName, updatedAbout, updatedPrice);
-      setProducts(prevProducts =>
-        prevProducts.map(product =>
-          product._id === id ? { ...product, name: updatedName, about: updatedAbout, price: updatedPrice } : product
-        )
+      setProducts((prevProducts) =>
+        prevProducts.map((product) =>
+          product._id === id
+            ? {
+                ...product,
+                name: updatedName,
+                about: updatedAbout,
+                price: updatedPrice,
+              }
+            : product,
+        ),
       );
     } catch (error) {
       toast.error(error.message);

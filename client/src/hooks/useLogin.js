@@ -1,7 +1,7 @@
-import {toast} from 'react-toastify';
-import { useAuthContext } from '../context/AuthContext';
-import {setCookie} from './useSetCookie';
-import { loginUser } from '../api/usersApi';
+import { toast } from "react-toastify";
+import { useAuthContext } from "../context/AuthContext";
+import { setCookie } from "./useSetCookie";
+import { loginUser } from "../api/usersApi";
 
 export const useLogin = () => {
   const { login } = useAuthContext();
@@ -13,7 +13,7 @@ export const useLogin = () => {
     try {
       const data = await loginUser(username, password);
       login(data);
-      setCookie('token', data.token, 30);
+      setCookie("token", data.token, 30);
     } catch (error) {
       toast.error(error.message);
     }
@@ -23,5 +23,7 @@ export const useLogin = () => {
 };
 
 function handleErrors({ username, password }) {
-  return username && password ? true : (toast.error('Please fill in fields'), false);
+  return username && password
+    ? true
+    : (toast.error("Please fill in fields"), false);
 }
