@@ -11,8 +11,8 @@
 
 - Move data from config.json to DB
 
-- Eslint
-
 - Tests
 
 - Webpack
+
+- ESlint server folder
