@@ -12,13 +12,11 @@ import "./CreateAd.css";
 export const CreateAd = () => {
   const { authUser } = useAuthContext();
 
-  const [inputs, setInputs] = useState({
-    name: "",
-    about: "",
-    price: "",
-    authorId: "",
-    image: null,
-  });
+  const [name, setName] = useState("");
+  const [about, setAbout] = useState("");
+  const [price, setPrice] = useState("");
+  const [authorId, setAuthorId] = useState("");
+  const [image, setImage] = useState(null);
 
   const [completed, setCompleted] = useState(false);
   const { upload, uploadAdHandler } = useUpload();
@@ -27,39 +25,28 @@ export const CreateAd = () => {
     const userData = localStorage.getItem("authUser");
     if (userData) {
       const { _id } = JSON.parse(userData);
-      setInputs((prevInputs) => ({
-        ...prevInputs,
-        authorId: _id,
-      }));
+      setAuthorId(_id);
     }
   }, []);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setInputs((prevInputs) => ({
-      ...prevInputs,
-      [name]: value,
-    }));
-  };
-
   const handleImageChange = (event) => {
     const imageFile = event.target.files[0];
-    setInputs((prevInputs) => ({
-      ...prevInputs,
-      image: imageFile,
-    }));
+    setImage(imageFile);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await uploadAdHandler(inputs);
-    setInputs({
-      name: "",
-      about: "",
-      price: "",
-      authorId: inputs.authorId,
-      image: null,
+    await uploadAdHandler({
+      name,
+      about,
+      price,
+      authorId,
+      image,
     });
+    setName("");
+    setAbout("");
+    setPrice("");
+    setImage(null);
     setCompleted(true);
   };
 
@@ -72,29 +59,25 @@ export const CreateAd = () => {
           <input
             type="text"
             placeholder="Product name"
-            name="name"
-            value={inputs.name}
-            onChange={handleInputChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <textarea
             type="text"
             placeholder="About product..."
-            name="about"
-            value={inputs.about}
-            onChange={handleInputChange}
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
           />
           <input
             type="text"
             placeholder="Price (€)"
-            name="price"
-            value={inputs.price}
-            onChange={handleInputChange}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
           <input
             type="text"
-            name="authorId"
-            value={inputs.authorId}
-            onChange={handleInputChange}
+            value={authorId}
+            onChange={(e) => setAuthorId(e.target.value)}
             disabled
             style={{ display: "none" }}
           />
@@ -105,12 +88,11 @@ export const CreateAd = () => {
             <span className="upload-label">Choose image:</span>
             <input
               type="file"
-              name="image"
               className="upload-file"
               accept="image/*"
               onChange={handleImageChange}
             />
-            {inputs.image && <p>Selected image: {inputs.image.name}</p>}
+            {image && <p>Selected image: {image.name}</p>}
           </div>
 
           {upload && completed && (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { getProductById } from "../api/productsApi.js";
+import { getProductById } from "../api/productsApi";
 
 export const useGetProductById = (id) => {
   const [product, setProduct] = useState("");

@@ -1,27 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { Logo } from "../logo/Logo.jsx";
-import { useRegister } from "../../hooks/useRegister.js";
+import { Logo } from "../logo/Logo";
+import { useRegister } from "../../hooks/useRegister";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Register.css";
 
 export const Register = () => {
-  const [inputs, setInputs] = useState({
-    firstLastName: "",
-    username: "",
-    password: "",
-    confirmPassword: "",
-    email: "",
-    phoneNumber: "",
-  });
+  const [firstLastName, setFirstLastName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const { registration, registerClient } = useRegister();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await registerClient(inputs);
+    await registerClient({
+      firstLastName,
+      username,
+      password,
+      confirmPassword,
+      email,
+      phoneNumber,
+    });
   };
 
   return (
@@ -31,44 +35,38 @@ export const Register = () => {
         <input
           type="text"
           placeholder="First and Last name"
-          value={inputs.firstLastName}
-          onChange={(e) =>
-            setInputs({ ...inputs, firstLastName: e.target.value })
-          }
+          value={firstLastName}
+          onChange={(e) => setFirstLastName(e.target.value)}
         />
         <input
           type="text"
           placeholder="Username"
-          value={inputs.username}
-          onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
-          value={inputs.password}
-          onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="password"
           placeholder="Confirm Password"
-          value={inputs.confirmPassword}
-          onChange={(e) =>
-            setInputs({ ...inputs, confirmPassword: e.target.value })
-          }
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
         />
         <input
           type="email"
           placeholder="Email"
-          value={inputs.email}
-          onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="text"
           placeholder="Phone Number"
-          value={inputs.phoneNubmer}
-          onChange={(e) =>
-            setInputs({ ...inputs, phoneNumber: e.target.value })
-          }
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
         />
 
         <button type="submit" className="register-button">

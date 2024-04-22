@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { Header } from "../layout/header/Header.jsx";
-import { Footer } from "../layout/footer/Footer.jsx";
-import { useGetProductById } from "../../hooks/useGetProductById.js";
-import { scrollToTop } from "../../hooks/useScrollTop.js";
+import { Header } from "../layout/header/Header";
+import { Footer } from "../layout/footer/Footer";
+import { useGetProductById } from "../../hooks/useGetProductById";
+import { scrollToTop } from "../../hooks/useScrollTop";
 import "./SingleAd.css";
 
 export const SingleAd = () => {

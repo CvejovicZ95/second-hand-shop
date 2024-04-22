@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { uploadAd } from "../api/productsApi.js";
+import { uploadAd } from "../api/productsApi";
 
 export const useUpload = () => {
   const [upload, setUpload] = useState(false);

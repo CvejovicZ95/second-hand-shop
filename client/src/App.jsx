@@ -1,13 +1,13 @@
 import React from "react";
-import { Layout } from "./components/layout/Layout.jsx";
-import { Login } from "./components/login/Login.jsx";
-import { Register } from "./components/register/Register.jsx";
-import { CreateAd } from "./components/createAd/CreateAd.jsx";
-import { UserAds } from "./components/userAds/UserAds.jsx";
-import { SingleAd } from "./components/singleAd/SingleAd.jsx";
+import { Layout } from "./components/layout/Layout";
+import { Login } from "./components/login/Login";
+import { Register } from "./components/register/Register";
+import { CreateAd } from "./components/createAd/CreateAd";
+import { UserAds } from "./components/userAds/UserAds";
+import { SingleAd } from "./components/singleAd/SingleAd";
 
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useAuthContext } from "./context/AuthContext.js";
+import { useAuthContext } from "./context/AuthContext";
 
 export function App() {
   const { authUser } = useAuthContext();

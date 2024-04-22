@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Logo } from "../logo/Logo.jsx";
-import { Footer } from "../layout/footer/Footer.jsx";
-import { useAuthContext } from "../../context/AuthContext.js";
-import { useGetProductByAuthor } from "../../hooks/useGetProductsByAuthor.js";
+import { Logo } from "../logo/Logo";
+import { Footer } from "../layout/footer/Footer";
+import { useAuthContext } from "../../context/AuthContext";
+import { useGetProductByAuthor } from "../../hooks/useGetProductsByAuthor";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { scrollToTop } from "../../hooks/useScrollTop.js";
+import { scrollToTop } from "../../hooks/useScrollTop";
 import "./UserAds.css";
 
 export const UserAds = () => {

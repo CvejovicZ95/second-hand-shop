@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "../../../context/AuthContext.js";
-import { Logo } from "../../logo/Logo.jsx";
-import { useLogout } from "../../../hooks/useLogout.js";
+import { useAuthContext } from "../../../context/AuthContext";
+import { Logo } from "../../logo/Logo";
+import { useLogout } from "../../../hooks/useLogout";
 import "./Header.css";
 
 export const Header = () => {

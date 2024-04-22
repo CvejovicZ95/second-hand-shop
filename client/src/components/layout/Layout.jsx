@@ -1,8 +1,8 @@
 import React from "react";
-import { Header } from "./header/Header.jsx";
-import { Listings } from "./listings/Listings.jsx";
+import { Header } from "./header/Header";
+import { Listings } from "./listings/Listings";
 import { Outlet } from "react-router-dom";
-import { Footer } from "./footer/Footer.jsx";
+import { Footer } from "./footer/Footer";
 
 export const Layout = () => {
   return (
