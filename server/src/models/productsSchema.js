@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
 export const productSchema = new mongoose.Schema({
   name: {
@@ -30,10 +30,10 @@ export const productSchema = new mongoose.Schema({
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
-    currentTime: () => new Date().toLocaleString(),
+    currentTime: () => new Date().toLocaleString()
   }
-});
+})
 
-const Product = mongoose.model("Product", productSchema);
+const Product = mongoose.model('Product', productSchema)
 
-export {Product};
+export { Product }

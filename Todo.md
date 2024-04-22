@@ -14,5 +14,3 @@
 - Tests
 
 - Webpack
-
-- ESlint server folder
