@@ -1,6 +1,6 @@
 import { useAuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
-import { logoutUser } from "../api/usersApi.js";
+import { logoutUser } from "../api/usersApi";
 
 export const useLogout = () => {
   const { logout } = useAuthContext();

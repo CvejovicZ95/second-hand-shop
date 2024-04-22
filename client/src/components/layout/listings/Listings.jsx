@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useGetProducts } from "../../../hooks/useGetProducts.js";
-import { Search } from "../../search/Search.jsx";
+import { useGetProducts } from "../../../hooks/useGetProducts";
+import { Search } from "../../search/Search";
 import "./Listings.css";
 
 export const Listings = () => {

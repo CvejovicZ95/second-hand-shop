@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Logo } from "../logo/Logo.jsx";
-import { useLogin } from "../../hooks/useLogin.js";
+import { Logo } from "../logo/Logo";
+import { useLogin } from "../../hooks/useLogin";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";

@@ -1,6 +1,6 @@
 import { useAuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
-import { registerUser } from "../api/usersApi.js";
+import { registerUser } from "../api/usersApi";
 import { useState } from "react";
 import { setCookie } from "./useSetCookie";
 
