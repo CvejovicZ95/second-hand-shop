@@ -21,10 +21,10 @@ Project entails developing a user-friendly website for a second-hand shop, featu
   
 ## Technologies Used
 
-- React
+- React.js
 - JavaScript
 - Node.js
-- Express
+- Express.js
 - MongoDB
 - CSS3
 
