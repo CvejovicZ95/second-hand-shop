@@ -13,4 +13,3 @@
 
 - Tests
 
-- Webpack
