@@ -13,7 +13,7 @@ dotenv.config()
 const PORT = process.env.PORT || 5000
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://192.168.1.6:3000'],
+  origin: ['http://localhost:3000', 'http://192.168.1.6:3000', 'http://localhost:8080'],
   optionsSuccessStatus: 200,
   credentials: true
 }
