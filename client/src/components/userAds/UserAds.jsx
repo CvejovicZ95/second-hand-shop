@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Logo } from "../logo/Logo";
 import { Footer } from "../layout/footer/Footer";
@@ -12,8 +12,14 @@ import "./UserAds.css";
 
 export const UserAds = () => {
   const { authUser } = useAuthContext();
-  // eslint-disable-next-line
-  const [authorId, setAuthorId] = useState(authUser ? authUser._id : null); 
+  const [authorId, setAuthorId] = useState(authUser ? authUser._id : null);
+
+  useEffect(() => {
+    if (authUser) {
+      setAuthorId(authUser._id);
+    }
+  }, [authUser]);
+
   const { loading, products, handleDeleteProduct, handleUpdateProduct } =
     useGetProductByAuthor(authorId);
 
@@ -75,7 +81,7 @@ export const UserAds = () => {
                       <h2>{product.name}</h2>
                       <p>{product.about}</p>
                       <img
-                        src={`/images/${product.imagePath}`}
+                        src={`${product.imagePath}`}
                         alt="ad"
                         width="250px"
                       />

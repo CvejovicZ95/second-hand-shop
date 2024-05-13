@@ -27,11 +27,7 @@ export const SingleAd = () => {
             <h2>{product.name}</h2>
             {product && product.about && formatDescription(product.about)}
             {product.imagePath && (
-              <img
-                src={`/images/${product.imagePath}`}
-                alt="ad"
-                width={"350px"}
-              />
+              <img src={`${product.imagePath}`} alt="ad" width={"350px"} />
             )}
             <div className="info-single-product">
               <span>Price: {product.price} €</span>

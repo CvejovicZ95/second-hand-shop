@@ -37,11 +37,7 @@ export const Listings = () => {
                     ? product.about
                     : `${product.about.slice(0, 25)}...`}
                 </p>
-                <img
-                  src={`/images/${product.imagePath}`}
-                  alt="ad"
-                  width={"170px"}
-                />
+                <img src={`${product.imagePath}`} alt="ad" width={"170px"} />
                 <span>Author: {product.authorId.firstLastName}</span>
                 <span>Price: {product.price}€</span>
                 <span>Contact: {product.authorId.phoneNumber}</span>
