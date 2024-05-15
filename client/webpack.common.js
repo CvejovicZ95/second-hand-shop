@@ -1,28 +1,17 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  mode: "development",
   entry: {
-    bundle: path.resolve(__dirname, "src/index.js"),
+    bundle: path.resolve(__dirname, "./src/index.js"),
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name][contenthash].js",
     clean: true,
     assetModuleFilename: "[name][ext]",
-  },
-  devtool: "source-map",
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, "dist"),
-    },
-    port: 3000,
-    open: true,
-    hot: true,
-    compress: true,
-    historyApiFallback: true,
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -50,7 +39,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Webpack App",
       filename: "index.html",
-      template: "public/index.html",
+      template: "./public/index.html",
     }),
     new CopyPlugin({
       patterns: [
@@ -59,6 +48,14 @@ module.exports = {
           to: "[name][ext]",
         },
       ],
+    }),
+    new Dotenv({
+      path:
+        process.env.NODE_ENV === "production"
+          ? "./.env.prod"
+          : process.env.NODE_ENV === "development"
+            ? "./.env.dev"
+            : "./.env.local",
     }),
   ],
 };

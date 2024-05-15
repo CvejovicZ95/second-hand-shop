@@ -1,5 +1,4 @@
-import config from "../config.json";
-const apiUrl = config.API_BASE_URL;
+const apiUrl = process.env.API_BASE_URL;
 
 export const loginUser = async (username, password) => {
   try {
